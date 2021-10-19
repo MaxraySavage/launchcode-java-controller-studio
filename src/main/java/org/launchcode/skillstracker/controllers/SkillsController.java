@@ -37,7 +37,7 @@ public class SkillsController {
     public String getForm(){
         return "<html>" +
                     "<body>" +
-                        "<form method='POST' action='/form'>" +
+                        "<form method='POST' action='/result'>" +
                             "Name: <br/>" +
                             "<input type='text' name='name' /><br/>" +
                             "My Favorite Language: <br/>" +
@@ -64,7 +64,7 @@ public class SkillsController {
                 "</html>";
     }
 
-    @PostMapping("/form")
+    @PostMapping("/result")
     @ResponseBody
     public String postFormPage(@RequestParam String name, @RequestParam String favoriteLanguage, @RequestParam String secondLanguage, @RequestParam String thirdLanguage){
         return "<html>" +
@@ -72,17 +72,26 @@ public class SkillsController {
                         "<h1>" +
                             name +
                         "</h1>" +
-                        "<ol>" +
-                            "<li>" +
-                            favoriteLanguage +
-                            "</li>" +
-                            "<li>" +
-                            secondLanguage +
-                            "</li>" +
-                            "<li>" +
-                            thirdLanguage +
-                            "</li>" +
-                        "</ol>" +
+                        "<table>" +
+                            "<tr>" +
+                                "<th>Favorite Language</th>" +
+                                "<th>" +
+                                    favoriteLanguage +
+                                "</th>" +
+                            "</tr>" +
+                            "<tr>" +
+                                "<th>Second Favorite Language</th>" +
+                                "<th>" +
+                                secondLanguage +
+                                "</th>" +
+                            "</tr>" +
+                            "<tr>" +
+                                "<th>Third Favorite Language</th>" +
+                                "<th>" +
+                                    thirdLanguage +
+                                "</th>" +
+                            "</tr>" +
+                        "</table>" +
                     "</body>" +
                 "</html>";
     }
